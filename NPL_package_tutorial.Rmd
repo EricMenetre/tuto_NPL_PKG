@@ -13,13 +13,13 @@ library(knitr)
 ```
 
 
-The NPL package was created to help researchers from the NeuroPsychoLinguistic lab of the University of Geneva to perform behavioral and EEG analyses as well as helping to report the results and get the code easier to read.
+The NPL package was created to help researchers from the NeuroPsychoLinguistic lab of the University of Geneva to perform behavioral and EEG analyses as well as helping to report the results and get the code easier to read. However, the package can be useful for any researcher in cognitive psychology.
 
 A list of the included functions and their brief description is available on the GitHub page dedicated to the NPL package: https://github.com/EricMenetre/NPL.
 
 # Package installation
 
-Before installing or using the NPL package, please make sure that all the following packages are installed on your computer and up to date.
+Before installing or using the NPL package, please make sure that all the following packages are installed on your computer and are up to date.
 
 ```{code}
 install.packages("ggplot2")
@@ -44,7 +44,7 @@ install.packages("devtools")
 Then load the devtools package using the following command line:
 
 ```{code}
-install.packages("devtools")
+library("devtools")
 ```
 
 And execute the following command:
@@ -60,13 +60,13 @@ library(NPL)
 ```
 
 The package will be improved over time, please update regularly your package version using the command line given at the third step. 
-If you encounter problem to install these packages, please update your R and Rstudio versions. If the problem persists, be sure that the path where the package is saved does not contains accents. To find out where the packages downloaded from GitHub are saved use the `?install_github()` command (after loading the package devtools). If the path contains accents, for PC owners, create a temporary folder on the root directory of your C disk, and use the `.libPaths("C:/your_new_folder")` command and repeat the installation process. When the process is done, copy the NPL folder from the temporary folder to your library. You will find the path in the `?install_github()` command. For mac user, the problem did not occured yet. If so, please contact Eric Ménétré.
+If you encounter difficulties to install these packages, please update your R and Rstudio versions. If the problem persists, be sure that the path where the package is saved does not contains accents. To find out where the packages downloaded from GitHub are saved use the `?install_github()` command (after loading the package devtools). If the path contains accents, for PC owners, create a temporary folder on the root directory of your C disk, and use the `.libPaths("C:/your_new_folder")` command and repeat the installation process. When the process is done, copy the NPL folder from the temporary folder to your R library. You will find the path in the `?install_github()` command. For mac user, the problem did not occured yet. If so, please contact Eric Ménétré.
 
 If you notice a bug or you have trouble using a function, please contact me at: Eric.Menetre@unige.ch
 
-Creating such a package necessitated a lot of time and effort. Please, if you used this package in your analyses, cite it using: 
+Creating such a package necessitated a lot of time and efforts. If you used this package in your analyses, Please, cite it : 
 
-```{r}
+```{r message=FALSE, warning=FALSE}
 citation("NPL")
 ```
 
@@ -81,19 +81,21 @@ help("date.banner")
 
 # Included functions and their usage
 
-The following section is divided in three. First the function designed to help performing behavioral analyses, then the function dedicated to EEG analyses and finaly the genric function usable to help writing in Rmarkdown or reporting statistical results. For each function, detailed example and and explanations will be provided. 
+All the data used in the following tutorial is available on the [Github repo](https://github.com/EricMenetre/tuto_NPL_PKG). To download the repo, click on code(green button) and dowload Zip.
+
+The description of the functions and their usage is didived in three sections. First the function designed to help performing behavioral analyses, then the function dedicated to EEG analyses and finaly the generic functions usable to help writing in Rmarkdown or reporting statistical results. For each function, detailed example and and explanations will be provided. 
 
 ## Behavioral analyses
 
-To illustrate the following function, a dataframe containing reaction time is provided in the tutorial GitHub repo. The file is named data_Stroop_RT.xlsx.
+To illustrate the following functions, a dataframe containing reaction time is provided in the [tutorial GitHub repo](https://github.com/EricMenetre/tuto_NPL_PKG). The file is named data_Stroop_RT.xlsx.
 
 To import this file in R, use:
 
 ```{r}
 library(readxl)
 data_Stroop_RT <- read_excel("data_Stroop_RT.xlsx")
-data_Stroop_RT$trigger <- as.character(data_Stroop_RT$trigger)
-data_Stroop_RT$group <- as.character(data_Stroop_RT$group)
+data_Stroop_RT$trigger <- as.character(data_Stroop_RT$trigger) # To fcilitate the analyses
+data_Stroop_RT$group <- as.character(data_Stroop_RT$group)# To fcilitate the analyses
 ```
 
 The dataframe contains several columns: 
@@ -113,7 +115,7 @@ str(data_Stroop_RT)
 - **CR**: correct responses. 1 = correct; 0 = incorrect
 - **error.type**: type of error commited by the subject. W = wrong; wrcor = wrong but corrected himself, NR = no response, ...
 
-Before starting, we need to remove the incorrect responses in the RT. Checkvocal puts negative values for items judged as incorrect and -1000 for no response trials. Moreover, we want to remove all the trials which have RT <= 200ms since it is very probably not reflecting the real cognitive mechanisms at work in the task. To remove these values, two methods can be used. Either using the base R package or using the tidyverse (https://www.tidyverse.org/). The latter is a group of packages designed to facilitate data analyses. For base R user, switching to tidyverse might take a bit of time but I can guarantee that it is worth it. Hence, we will use tidyverse syntax in this tutorial. This syntax uses a lot of pipe operators `%>%` which means "take the element on the left of the operator and put it as first argument in the function on the right of the operator", the point being to articulate different functions without saving the intermediate steps. 
+Before starting, we need to remove the incorrect responses in the RT. Checkvocal puts negative values for items judged as incorrect and -1000 for no response trials. Moreover, we want to remove all the trials which have RT <= 200ms since it is very probably not reflecting the real cognitive mechanisms at work in the task. To remove these values, two methods can be used. Either using the base R package or using the [tidyverse](https://www.tidyverse.org/). The latter is a group of packages designed to facilitate data analyses. For base R user, switching to tidyverse might take a bit of time but I can guarantee that it is worth it. Hence, we will mainly use tidyverse syntax in this tutorial. This syntax uses a lot of pipe operators `%>%` which means "take the results of the previous operation on the left of the operator and put it as first argument (input) in the function on the right of the operator", the point being to articulate different functions without saving the intermediate steps. 
 
 ```{r, message=FALSE, warning=FALSE}
 library(dplyr)
@@ -142,12 +144,11 @@ ggplot(data_Stroop_RT, aes(x = RT))+
 
 ```
 
-the reaction times are not equally distributed from each side of the median. Two options are possible here. Either use non-parametric, generalized linear methods (using Gamma distribution), or cut the extreme values on the right side of the distribution. However, since there is a variability across groups or subjects, the cleaning of the extreme reaction times needs to be done per group or per subject. Again, two solutions are possible. Either use Excel, calculate one average and standard deviation per subject and manually change the RT to missing values or use the `clean.sd()` function directly in R.
-The `clean.sd()` function is designed to automatize this process. 
+the reaction times are not equally distributed from each side of the median (dotted line). Two options are possible here. Either use non-parametric, generalized linear methods (using Gamma distribution), or cut the extreme values on the right side of the distribution. However, since there is a variability across groups or subjects, the cleaning of the extreme reaction times needs to be done per group or per subject. Again, two solutions are possible. Either use Excel, calculate one average and standard deviation per subject and manually change the RT to missing values for the values outranging the limits, or use the `clean.sd()` function directly in R, which is specifically designed to automatize this process. 
 
 Here are the arguments of the function: 
 
-```{r}
+```{r warning=FALSE}
 args(clean.sd)
 ```
 
@@ -167,7 +168,7 @@ clean.sd(df.var.val = data_Stroop_RT$RT,
          fill = NA)
 ```
 
-The function rreturns several outputs. First an histogram and QQ-plots of the distribution of the RT before and after cleaning. A table containing the superior and inferior limits  has also been created. It also returns a message specifying that the work is done and the results have been checked for the first two groups. The same messages specifies that a vector named clean.val has been created in the environement and we need to add this vector as a new variable of our data frame (and to keep things clean, we will remove this vector from the environement):
+The function returns several outputs. First histograms and QQ-plots of the distribution of the RT before and after cleaning, and a table containing the superior and inferior limits were also been created. It also returns a message specifying that the work is done and the results have been checked for the first two groups. The same message specifies that a vector named clean.val has been created in the environement and we need to add this vector as a new variable to our data frame (and to keep things clean, we will remove this vector from the environement):
 
 ```{r}
 data_Stroop_RT$RT_clean <- clean.val
@@ -176,9 +177,9 @@ rm(clean.val)
 str(data_Stroop_RT)
 ```
 
-Here the function was applied on the group level. It also can be possible to apply it on the subject level, by specifying the subject variable as df.var.group.
+Here the function was applied on the group level. It is also possible to apply it on the subject level, by specifying the subject variable as df.var.group.
 
-```{r}
+```{r warning=FALSE}
 med_RT <- median(data_Stroop_RT$RT_clean, na.rm = T)
 moy_RT <- mean(data_Stroop_RT$RT_clean, na.rm = T)
 ggplot(data_Stroop_RT, aes(x = RT_clean))+ 
@@ -203,11 +204,12 @@ data_Stroop_RT%>%
 ggplot(aes(x = subject, y = RT))+
   geom_boxplot()+
   theme_minimal()+
-  labs(title = "Boyplot showing the differences in RT among subjects - young adults group")+
+  labs(title = "Boxplot showing the differences in RT among subjects - young adults group")+
   theme(axis.text.x = element_text(angle = 45))
 
 ```
 
+The arguments of this function are:
 
 ```{r}
 args(clean.subj.group)
@@ -218,7 +220,7 @@ args(clean.subj.group)
 - N.sd: Number of standard deviation above and under the mean where to put the rejection boundary.
 - data: Name of the dataframe containing the experimental data.
 - groupping: Specify TRUE if results need to be differentiated by group. Default is FALSE. If set to TRUE, specify the group.var argument.
-- group.var: Groupping variable for example age group. Use the raw name of the column e.g. group instead of data$group without "" either. The default is NULL, use it like this without groupping variable in your data. This argument is linked to the groupping one. if groupping = TRUE, specify the group.var argument.
+- group.var: Groupping variable for example age group. Use the raw name of the column e.g. group instead of data$group without "" either. The default is NULL, use it like this without groupping variable in your data if groupping = FALSE. This argument is linked to the groupping one. if groupping = TRUE, specify the group.var argument.
 
 
 ```{r}
@@ -271,17 +273,17 @@ The function returns a plot figure containing four parts:
 - a histogram of the dependant variable
 - a boxplot of the dependant variable
 - one boxplot per subject to assess the variability between the subjects
-- one boyplot per color included in the Stroop task to assess variability between colors.
+- one boxplot per color included in the Stroop task to assess variability between colors (since the class variable was attributed to this factor. Generally this represents the second random effect after subjects, usually items).
 
 
 
 ### LMM_check
 
-After performing a mixed model analysis, it is very important to check of the residus are normally distributed. To do so, either retrieve each plot by its own command line or use the `LMM_check()` function. As the previous one, this function is informative only for linear models.
+After performing a mixed model analysis, it is very important to check if the residus are normally distributed. To do so, either retrieve each plot by its own command line or use the `LMM_check()` function. As the previous one, this function is informative only for linear models.
 
-Model selection method is documented in this cheatsheet: https://github.com/EricMenetre/R-codes/blob/master/CheatSheet%20Linear%20Mixed%20Models.pdf
+Model selection method is documented in this [cheatsheet](https://github.com/EricMenetre/R-codes/blob/master/CheatSheet%20Linear%20Mixed%20Models.pdf).
 
-We will assume that all the procedure has been followed and led us to the following model: 
+We will assume that all the procedure has been followed and led us to the following model, including the main effects and interaction between trigger and age groups, and as random intercepts, the subjects and colors to be named: 
 ```{r, message=FALSE, warning=FALSE}
 library(lme4)
 library(lmerTest)
@@ -292,6 +294,7 @@ summary(my_model)
 
 ```
 
+Here are the arguments of the function: 
 
 ```{r}
 args(LMM_check)
@@ -307,8 +310,9 @@ The function returns some plots. The number depends on the number of random effe
 
 
 ### ICC_ranef
-An often forgotten step in the analysis of moxed models is the interpretation of the intra-class correlation. This measure translate the cohesion of the data in one variable used as random effect in a mixed model. If the ICC is large, this means that there are large differences among the different level of the variable. A low ICC shows a good cohesion between the level of the variable.
+An often forgotten step in the analysis of mixed models is the interpretation of the intra-class correlation. This measure translates the cohesion of the data in one variable used as random effect in a mixed model. If the ICC is large, this means that there are large differences among the different level of the variable. A low ICC shows a good cohesion between the levels of the variable.
 
+The arguments of the function are:
 ```{r}
 args(ICC_ranef)
 ```
@@ -319,13 +323,13 @@ args(ICC_ranef)
 ICC_ranef(my_model)
 ```
 
-The function returns a data frame containing the names of the random variables with their respective ICC. Here the subject variable explains 34.68% of the total variance of the DV. item.color shows a much better cohesion with an ICC of 0.68%.
+The function returns a data frame containing the names of the random variables with their respective ICC. Here the subject variable explains 34.68% of the total variance of the DV. item.color shows a much better cohesion with an ICC of 0.69%. A high ICC motivates the importance to add a certain factor as random effect.
 
 
 
 ### mod_fitting
 
-The hierarchical approach is often recognized as the gold standard regarding the selection of the mixed model to use. However, this approach is not very convenient, necessitating for the user to compare sometimes a dozen of models among them. To facilitate this process, the user could use the `mod_fitting()` function.
+The hierarchical approach is often recognized as the gold standard regarding the selection of the mixed model to use. However, this approach is not very convenient, necessitating for the user to compare sometimes a dozen of models. To facilitate this process, the user could use the `mod_fitting()` function.
 
 Let's imagine that five models were needed to reach the model my_model used in the `exp_plots_LMM()`, `LMM_check()` and `ICC_ranef()` functions.
 
@@ -338,7 +342,7 @@ mod_3 <- lmer(RT_clean~ trigger+group + (1|subject)+(1|item.color), data = data_
 my_model <- lmer(RT_clean ~ trigger*group + (1|subject)+(1|item.color), data = data_Stroop_RT, REML = FALSE)
 ```
 
-The selection of the best model among these is mainly based on the AIC and BIC information. To compare these models, we can use the mod_fitting function:
+The selection of the best model among these is mainly based on the AIC and BIC information. To compare these models, we can use the `mod_fitting()` function:
 
 ```{r}
 args(mod_fitting)
@@ -346,41 +350,48 @@ args(mod_fitting)
 
 - models: a list (as `list()`) of lmer or glmer models
 
+
+To use the function:
+
 ```{r, message=FALSE, warning=FALSE}
 
 list_models <- list(m0 = mod_0, m1 = mod_1, m2 = mod_2, m3 = mod_3, m4 = my_model)
 mod_fitting(list_models)
 ```
 
-The function returns a dataframe arranging the models by the smallest AIC. Here the... 
-The dataframe includes as well the information of the loglikelihood, df_resid. If the models is REML, the cAIC is estimated with its DF. To confirm, the model type and the REML information are mentioned as well as the formula. 
+The function returns a dataframe arranging the models by the smallest AIC. Here the fourth model (my_model) seems to be the one with the best fitting.
+The dataframe includes as well the information of the loglikelihood and df_resid. If the models is REML, the cAIC is estimated with its DF. To conclude, the model type and the REML information are mentioned as well as the formula. 
 Be careful, this might take some time, if the REML parameters of the model are set to TRUE. Here parameters were set to FALSE to save computation time.
 
 ### cross_anova_models
 
-Another option to compare models between them is to perform a chi-squared test between models. This can be achieved using the `anova()` function. However, this function can compare only models two by two. The `cross_anova_models()` function helps interpreting the results by designing a matrix confronting the anova p-valued model by model, facilitating the interpretation. To use this function on the data here, we will use the list of models used in the `mod_fitting()` function.
+Another option to compare models between them is to perform a chi-squared test between models fitting information. This can be achieved using the `anova()` function. However, this function can compare only models two by two. The `cross_anova_models()` function helps interpreting the results by designing a matrix confronting the anova p-values model by model, facilitating the interpretation. To use this function on the data here, we will use the list of models used in the `mod_fitting()` function.
 
+This function take as argument:
 ```{r}
 args(cross_anova_models)
 ```
 
 - models: a list (as `list()`) of lmer or glmer models
 
+To use the function: 
+
 ```{r}
 cross_anova_models(list_models)
 ```
 
-Here the m4 should be the one to retain.
+From the m0, when compared to the m1, m1 seems to have a better fitting. m1 is however not better than m2 but m3 seems better than m1. m4 is in the end better than m3. As for the previous function, the best model is the fourth one.
 
 
 ### std_error
 
-Oddly, in the base package, no function is designed to calculate the standard error of an array. The `std_error()` function calculates it as: 
+Oddly, in the base package, no function is designed to calculate the standard error of an array. In the NPL package, the `std_error()` function calculates it as: 
 
 ```{code}
 SE <- sd(data)/sqrt(nrow(data))
 ```
 
+This function takes as arguments:
 
 ```{r}
 args(std_error)
@@ -396,11 +407,13 @@ For example, let's estimate the standard error of the accuracy column in our dat
 std_error(data_Stroop_RT$CR)
 ```
 
-
+standard error can replace the standard deviation when the data are not normally distributed, for example, when reporting or plotting accuracy results.
 
 ### round_df
 
 The `round()` function designed in the base R package allows the user to round an array. It can be applied to an entire dataframe, however, if one of the variables contains strings or logical, the function returns an error. The `round_df()` function uses the `round()` function but only on the columns which contain numerical values, avoiding the error.
+
+This function takes as arguments:
 
 ```{r}
 args(round_df)
@@ -409,6 +422,8 @@ args(round_df)
 - df: a dataframe
 - digits: number of digits after the decimal point to round to
 
+
+Let's try to apply the function to the dataframe
 ```{r}
 round_df(data_Stroop_RT, 2)
 ```
@@ -440,14 +455,13 @@ args(convert.eph.ep.folder)
 
 - path: path to the folder containing all the .eph files. The best practice to avoid mistakes is to set the working directory to the path where the .eph files are stored and use the `getwd()` function to access it.
 
-```{r message=FALSE, warning=FALSE}
+```{r message=FALSE, warning=FALSE, results="hide"}
 # First set the working directory to the folder containing all the .eph files
 setwd("eph_files")
 # Run the function indicating the path to the working directory using the getwd() function.
 convert.eph.ep.folder(getwd())
 ```
 
-Do not use this function inside an Rmarkdown document, always from a script.
 
 ### create.tva.files
 .tva files are text files read by Cartool during the averaging process. These files tell Cartool which trial are incorrect and need to be excluded, and specify the latencies for the response-aligned averaging in epochs. To create the .tva files, either open your behavioral results .xlsx file in Excel and copy paste for each subject the accuracy, trigger and RT information in a new Excel file and save it as .tva. This method is highly time consuming and prone to errors during the copy-paste process. The `create.tva.files()` allows the user to create automatically these .tva files from the behavioral results dataframe.
@@ -463,7 +477,7 @@ args(create.tva.files)
 - trig.var: Name of the variable containing the triggers (tidy format)
 - path.save: Path to the folder where to save the .tva files
 
-Let's use the function on the Stroop data (dataframe presented for the Behavioral analyses). But first, we need to create the RT_TVA column containing the RT reduced by 100ms to avoid including the beginning of the articulation on the EEG.
+Let's use the function on the Stroop data (dataframe presented for the Behavioral analyses). But first, we need to create the RT_TVA column containing the RT reduced by 100ms to avoid including the beginning of the articulation on the EEG epochs.
 
 ```{r message=FALSE, warning=FALSE}
 # Creation of the RT_TVA colum
@@ -485,10 +499,10 @@ create.tva.files(data = data_Stroop_RT,
 data_Stroop_RT$trigger <- as.character(data_Stroop_RT$trigger) # Retransform trigger as character
 ```
 
-In less than a minute, 151 .tva files were created in the tva.files folder. Also be careful to the format of your variables, which should all be numerical.
+In less than a minute, 151 .tva files were created in the tva.files folder. Also beware of your variables format, which should all be numerical.
 
 ### delete.spaces.STEN
-To import the data into the STEN software, the files should be under the .ep format, rereferenced to average and the names should not contain any space.To rename the files, one can either use a .bat script from Windows, or use the `delete.spaces.STEN()` function.
+To import the data into the STEN software, the files should be under the .ep format, rereferenced to average and the names should not contain any space. To rename the files, one can either use a .bat script from Windows to extract the name of the files in the folder, copy that in Excel, rename and use another .bat file to rename all the files, or use the `delete.spaces.STEN()` function.
 
 ```{r}
 args(delete.spaces.STEN)
@@ -499,7 +513,7 @@ args(delete.spaces.STEN)
 First let's extract the names of the files in the delete.spaces.STEN folder:
 
 ```{r}
-list.files("delete.spaces.STEN/Original files names")
+list.files("delete.spaces.STEN/Original_files_names")
 
 ```
 
@@ -538,9 +552,9 @@ After running the function, two elements were created. The first one is a list o
 
 `r kable(head(data_groupped))`
 
-The dataframe contains all the electrodes in columns. The last two columns contain the time frame information and each file is names "subj_1" to "subj_n".
+The dataframe contains all the electrodes in columns. The last two columns contain the time frame information and each file is named "subj_1" to "subj_n".
 
-Now let's imagine we want to plot the data for an electrode :
+Now let's imagine we want to plot the data for an electrode. Here X129 contains the time information, X1 is the first electrode, and V130 contains the subjects names
 ```{r}
 ggplot(data_groupped, aes(x = X129, y = X1, color = V130))+
   geom_line()+
@@ -560,11 +574,11 @@ In some cases it might be useful to subtract two EEGs. This can be achieved in a
 args(subtract.eeg)
 ```
 
-- file1: path to the first file to subtract
-- file2: path to the second file to subtract
+- file1: first file to subtract (imported and transformed by the `import.epochs.ep()` function)
+- file2: second file to subtract (imported and transformed by the `import.epochs.ep()` function)
 - path_save: path and file name where to save the result of the subtraction.
 
-Be careful, the function always performs file2 - file1. Moreover, the coding is not very efficient, which can result in a long computation time for large files.
+Be careful, the function always performs file2 - file1. Moreover, the coding is not very efficient, which can result in a long computation time and memory for large files.
 
 Let's try this out on the data sotred in the subtract.eeg folder. First, to use this function, the data need to be imported using the `import.epochs.ep()` function. Then the information added by the `import.epochs.ep()` function need to be removes (i.e. the TF and subjects information). 
 
@@ -586,7 +600,7 @@ subtract.eeg(file1 = trigger_2,
 The function returns an object called subtracted EEG in the global environement and writes a .ep file with the subtraction.
 
 ### tanova.ragu.to.cartool
-When performing a Tanova in Ragu, the results can be exported as a .txt file. However ^, it might be handy to be able to open this file in Cartool to better visualize the data along with the STEN results for example. To do so, one can use the function `tanova.ragu.to.cartool()`
+When performing a Tanova in Ragu, the results can be exported as a .txt file. However, it might be handy to be able to open this file in Cartool to better visualize the data along with the STEN results for example. To do so, one can use the function `tanova.ragu.to.cartool()`
 
 ```{r}
 args(tanova.ragu.to.cartool)
@@ -599,10 +613,10 @@ args(tanova.ragu.to.cartool)
 tanova.ragu.to.cartool("tanova.ragu.to.cartool/tanova_results_2_3_FW.txt")
 ```
 
-The function created in the working directory as many files as the number of comparisons present in the tanova .txt file. Here there was two main effects and their interaction, hence the function wrote three .ep files containing the results. It is also noteworthy to mention that the results are dichotomized to be more easily interpreted in Cartool. The default value is 0.05 but it can be set to 0.01 or 0.001 if necessary. 
+The function created in the working directory as many files as the number of comparisons present in the tanova .txt file. Here there was two main effects and their interaction, hence the function wrote three .ep files containing the results. It is also noteworthy to mention that the results are dichotomized to be more easily interpreted in Cartool. The default value is 0.05 but it can be set to 0.01, 0.001 or any other value if necessary. 
 
 ### find_max_amp_diff
-When performing peak analysis, it is sometimes difficult to find the best electrode on which to perform the analysis. The `finc_max_amp_diff()` function helps the user by showing the user the electrodes on which the difference between two conditions is maximal.
+When performing peak analysis, it is sometimes difficult to find the best electrode on which to perform the analysis. The `find_max_amp_diff()` function helps the user by showing the electrodes on which the difference between two conditions is maximal.
 
 ```{r}
 args(find_max_amp_diff)
@@ -613,7 +627,7 @@ args(find_max_amp_diff)
 - time_var: Variable containing the time information, either in time frames or in ms. Use the tidy format (simply the column name without $ or data[])
 - N_electrodes: Number of electrodes used in the file.
 
-The function compares all electrodes according to the difference between their AUC (area under the curve). For now, the function takes only datasets with two conditions. If your dataset has a higher number of conditions, please consider applying this function 2 conditions by 2 conditions. Be careful, a minimal difference of AUC does not necessarily mean that there is no difference between two conditions. If the temporal window is large enough, two curves intersecting in an X shape might result to a minimal differences. Differences in time lag between two condition will also have a small AUC difference. This function helps you to chose the right electrodes but do not use it blindly !
+The function compares all electrodes according to the difference between their AUC (area under the curve). For now, the function takes only datasets with two conditions. If your dataset has a higher number of conditions, please consider applying this function two conditions by two conditions. Be careful, a minimal difference of AUC does not necessarily mean that there is no difference between two conditions. If the temporal window is large enough, two curves intersecting in an X shape might result to a minimal differences. Differences in time lag between two condition will also have a small AUC difference. This function helps you to chose the right electrodes but do not use it blindly !
 
 ```{r message=FALSE, warning=FALSE}
 
@@ -630,7 +644,7 @@ peak_analysis_diff <- find_max_amp_diff(data = data_groupped,
 
 The function returns a dataframe containing all the electrodes names, the AUC for the first condition, the AUC of the second condition and their difference. The results are arranged according to the bigger AUC difference between two electrodes. Since the `import.epochs.ep()` function automatically names the EEG files "subj_1" to "subj_n" the conditions are named as so. However, this can be changed either using regular expressions or using the combination of the `mutate()` and `case_when()` functions from the dplyr package:
 
-```{r}
+```{r warning=FALSE, message=FALSE}
 # Using regular expressions
 data_groupped$V130 <- str_replace(data_groupped$V130, "subj", "EEG") # Here the subj part of the name is replaced by EEG
 head(data_groupped$V130)
@@ -669,6 +683,8 @@ The function returns a dataframe containing the data directly transformed to the
 
 #### import_stats_Cartool
 
+As Ragu, Cartool does not returns output easily analyzable results documents when backfitting maps to the subjects averages. The `import_stats_Cartool()` helps at importing the results in a more R friendly format.
+
 ```{r}
 args(import_stats_Cartool)
 ```
@@ -680,10 +696,10 @@ To use the function, simply indicate the path to the folder created when backfit
 import_stats_Cartool(path = "import_stats_Cartool")
 ```
 
-The function returns a dataframe containing all the information contained in all the .csv files from the Cartool output, combining the different groups.
+The function returns a dataframe containing all the information encompassed in all the .csv files from the Cartool output, combining the different groups.
 
 ### read_seg_file
-For analysis or visualisation purposes, one might want to import the data contained in the .seg file (containing the fitting information of each map on the GFP). These data can be imported in R using the `read_seg_file()` function.
+For analysis or visualization purposes, one might want to import the data contained in the .seg file (containing the fitting information of each map on the GFP). These data can be imported in R using the `read_seg_file()` function.
 
 ```{r}
 args(read_seg_file)
@@ -707,10 +723,10 @@ args(plot_microstates)
 ```
 
 - path_.seg: path to the .seg file containing the information for the plot.
-- vline_onset: this parameter allows to put a vertical line signaling the stimulus onset. Evidently, this argument is to use only with stimulus aligned data. DEfault is FALSE
-- time_ms: this parameter allows the user to give the function a vector containing the timing information. If set to "none", the time frame information will be used.DEfault is "none"
-- size_hist: to represent the different maps (colors) of the plot, an histogram is fitted under the GFP. Depending on the size of the output, some white spaces might be apparent if this size is too small. This parameter allows the user to adjust for that. The default is 2, which is a good compromise.
-- palette: colors used in the plot uses a palette system (group of colors systematically used for each map). When plotting stimulus aligned and response aligned data, one might prefer using another color set than the one implemented. Across all plots, maps number will have the same colors. by default the color palette is "default", another possibility is to set it on "alternative". This option will use different colors. The color can also be customized by indicating the path to an Excel file containing new color names. The first column should contain the maps numbers and the second column the color names.
+- vline_onset: this parameter allows to put a vertical line signaling the stimulus onset. Evidently, this argument is to use only with stimulus aligned data. Default is FALSE
+- time_ms: this parameter allows the user to give the function a vector containing the timing information. If set to "none", the time frame information will be used. Default is "none"
+- size_hist: to represent the different maps (colors) of the plot, an histogram is fitted under the GFP. Depending on the size of the output figure, some white spaces might be apparent if this size is too small. This parameter allows the user to adjust for that. The default is 2, which is a good compromise.
+- palette: colors used in the plot use a palette system (group of colors systematically used for each map). When plotting stimulus aligned and response aligned data, one might prefer using another color set than the one implemented. Across all plots, maps number will have the same colors. by default the color palette is "default", another possibility is to set it on "alternative". This option will use different colors, which can be handy when dealing with a second .seg file, for example with response aligned. The color can also be customized by indicating the path to an Excel file containing new color names. The first column should contain the maps numbers and the second column the color names.
 
 First let's define the time_ms vector. Here data were recorded at 512Hz and downsampled by 2, leading to a 256Hz sampling rate. This sampling rate indicates that one time frame represents approximatly 4ms. Moreover, the epochs contain a 100ms baseline, so approximatly 25TF. The time verctor here will hence be a sequence from -100 to 0 and another sequence from 0 to 520ms. This can be written as follow:
 
@@ -718,7 +734,7 @@ First let's define the time_ms vector. Here data were recorded at 512Hz and down
 time_in_ms <- c(seq(-100, 0, by = 4), seq(5,520, by = 4))
 time_in_ms
 ```
-
+To obtain the microstates plot, the following syntax can be used:
 
 ```{r warning=FALSE, message=FALSE}
 list_plots <- plot_microstates(path_.seg = "read_seg_file__plot_microstates/Fit Maps FW_ICN_5maps.Group1.seg",
@@ -742,11 +758,11 @@ library(ggpubr)
 do.call(ggarrange, list_plots)
 ```
 
-To export the figure, use the `ggsave()` function. A tutorial on this function can be found here: https://ggplot2.tidyverse.org/reference/ggsave.html
+To export the figure, use the `ggsave()` function. A tutorial on this function can be found [here](https://ggplot2.tidyverse.org/reference/ggsave.html).
 Basically, in your R script, visualize the plot, and then use the ggsave function like this: 
 
 ```{code}
-ggsave("my_nice_plot.jpg", dpi = 800) # The dpi argument is the resolution, the minimum for publication is 600
+ggsave("my_nice_plot.jpg", dpi = 800) # The dpi argument is the resolution, the minimum for publication is usually 600
 ```
 
 
@@ -755,7 +771,7 @@ ggsave("my_nice_plot.jpg", dpi = 800) # The dpi argument is the resolution, the 
 
 ### number_to_word
 
-Rmarkdown is a powerful tool to get some nice documents including the code and the results. More and more journals offer the authors to send their manuscript in .Rmd, which allows to be more directed towards open science. Rmarkdown allows to report results in the text directly. sometimes, depending on the results, the author don't want small numbers written in arabic numbers but in text. The `number_to_words()` function translates the results to be reported in words if smaller than 10 and if it is an integer.
+Rmarkdown is a powerful tool to get some nice documents including the code and the results. More and more journals offer the authors to send their manuscript in .Rmd, which allows to be more directed towards open science. Rmarkdown allows to report results in the text directly. sometimes, depending on the results, the author don't want small numbers written in arabic numbers but rather in words. The `number_to_word()` function translates the results to be reported in words if smaller than 10 and if it is an integer.
 
 Here is an example:
 
@@ -766,7 +782,7 @@ number_to_word(my_number)
 
 ### report_results
 
-As pointed out recently (https://journals.sagepub.com/doi/full/10.1177/2515245918801915), a lot of errors on the scientific literature happen when rounding and reporting numbers from an analysis software to Word. The function `report_results()` helps the researcher to avoid these errors by pre-formating the results automatically. The researcher only has to copy-paste the output in Word. Since the police and its size are different between R and Word, copy it and paste it as values in Word, it will adapt to the style used in Word.
+As [pointed out recently](https://journals.sagepub.com/doi/full/10.1177/2515245918801915), a lot of errors on the scientific literature happen when rounding and reporting numbers from an analysis software to Word. The function `report_results()` helps the researcher to avoid these errors by pre-formating the results automatically. The researcher only has to copy-paste the output in Word. Since the police and its size are different between R and Word, copy it and paste it as values in Word, it will adapt to the style used in Word.
 
 The function allows the user to report results from a Chi Squared, `anova()` of a model or `Anova()` of a model (from the car package), the `summary()` of a model or the post-hocs resutls from the `emmeans()` function.
 
@@ -776,7 +792,7 @@ args(report_results)
 
 - model_data: For "mainef_anova", "chisq", "mainef_Anova" and "summary" methods, put the statistical model. For the "emmeans" method, create an object as: your_model$pairwise..., and in a second step, convert this model in data frame using the as.data.frame() function and use this transformed model as argument.
 
-- method: Statistical method employed: either "mainef_anova", in this case an anova(model_data) will be performed, "chisq", then the results of the model will be used, "mainef_Anova" the Anova(model_data) from the car package will be performed. The "summary" method uses the summary(model_data). Some methods are implemented only for certain models. *mainef_anova* is implemented only for lm() and lmer() models. *chisq* only supports models from the chisq.test() function. *emmeans* supports only emmeans() models after transformation as described above. *mainef_Anova* supports only glmer() models. *summary* supports lm(), lmer(), and glmer() models.
+- method: Statistical method employed: either "mainef_anova", in this case  `anova(model_data)` will be performed, "chisq", then the results of the model will be used, "mainef_Anova" the `Anova(model_data)` from the car package will be performed. The "summary" method uses the `summary(model_data)`. Some methods are implemented only for certain models. *mainef_anova* is implemented only for `lm()` and `lmer()` models. *chisq* only supports models from the `chisq.test()` function. *emmeans* supports only `emmeans()` models after transformation as described above. *mainef_Anova* supports only `glmer()` models. *summary* supports `lm()`, `lmer()`, and `glmer()` models.
 
 Let's try out the function:
 
@@ -822,10 +838,12 @@ report_results(model_data = my_model, method = "summary")
 
 #### Anova() of the model
 
-The same logic as above can be applied to the `Anova()` function. Be careful, the model needs to be a `glmer()` model. Otherwise, the following message appears
+The same logic as above can be applied to the `Anova()` function. Be careful, the model needs to be a `glmer()` model. Otherwise, the following message appears: 
+
 ```{r}
 report_results(model_data = my_model, method = "mainef_Anova")
 ```
+
  On a `glmer()` model, the results look like this: 
 ```{r}
 report_results(model_data = my_glmer_model, method = "mainef_Anova")
@@ -862,3 +880,15 @@ The `report_results()` function allows as well to report results from a Chi squa
 report_results(model_data = chi_model, method = "chisq")
 ```
 
+Be careful, in Word, the X letter needs to be replaced with a Chi.
+
+### date.banner
+The `date.banner()` function returns a banner in the console that the user can copy and paste in the code. The banner contains the date of the day.
+
+The function does not take any argument.
+
+```{r message=FALSE, warning=FALSE}
+date.banner()
+```
+
+The point of this function is to help the user to organise its code based on the chronology.

@@ -1,0 +1,406 @@
+			Fitting
+			=======
+
+			Cartool  3.80  (5940)
+			2020/08/04  08:47
+
+
+
+	Data Preprocessing:
+	-------------------
+Spatial Filter:                         No Spatial Filter
+
+Data levels normalization:              Yes
+Normalization computation:              e ^ (Median log (GFP))
+
+Deleting temporary preprocessed files:  Yes
+
+
+	Epochs:
+	-------
+Number of epochs to be fitted:          1
+
+Epoch #:                                1
+From Time Frame:                        73
+To   Time Frame:                        154
+With Maps / Templates:                  *
+
+Bad epochs:                             Not skipping bad epochs
+
+
+	Fitting Method:
+	---------------
+Number of templates:                    5
+
+Fitting process is:                     Competitive
+
+Labeling at low Correlations:           Yes
+
+Data type:                              Signed Data
+Data Ranking:                           No
+Data reference:                         Average Reference
+Data Correlation reference:             Average Reference
+Data polarity:                          Account
+
+
+	Templates:
+	----------
+Templates type:                         Signed Data
+Templates Ranking:                      No
+Templates reference:                    Average Reference
+Templates Correlation reference:        Average Reference
+Templates polarity:                     Account
+
+
+	Temporal Postprocessings:
+	-------------------------
+Smoothing:                              Yes
+Smoothing half window size:             3
+Smoothing strength (Besag factor):      10.000000
+
+Rejecting small segments:               Yes
+Rejecting segment less or equal to:     3
+
+Sampling Frequency:                     Missing, results will be in Time Frames
+
+
+	Variables Computed:
+	-------------------
+Number of variables computed:           15
+One output file per group of files:     Yes
+One output file per variable:           No
+Short variable names:                   No
+
+First TF of onset:                      Group*_Map*_FOnset
+Last TF of offset:                      Group*_Map*_LOffset
+Number of TFs:                          Group*_Map*_NumTF
+TF of centroid:                         Group*_Map*_TfCentroid
+Mean Correlation:                       Group*_Map*_MeanCorr
+Global Explained Variance:              Group*_Map*_Gev
+Best Correlation value:                 Group*_Map*_BCorr
+TF of the Best Correlation:             Group*_Map*_TfBCorr
+GFP of the TF of Best Correlation:      Group*_Map*_GfpTfBCorr
+Max GFP:                                Group*_Map*_MaxGfp
+TF of Max GFP:                          Group*_Map*_TfMaxGfp
+Mean GFP:                               Group*_Map*_MeanGfp
+Mean Segment Duration:                  Group*_Map*_MeanDur
+Time Coverage:                          Group*_Map*_TimeCov
+Segment Count Density:                  Group*_Map*_SegDensity
+
+
+	Markov Chains:
+	--------------
+Computing Joint States Probabilities:   No
+Computing Markov Transition Matrices:   No
+
+
+	Resting States:
+	---------------
+Histograms of Segments durations:       No
+Computing Segments frequencies:         No
+Time Course of Correlations:            Yes
+
+
+	Input Files:
+	------------
+Template file:                          C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\Maps FW_ICN_5maps.ep
+
+Number of groups of files:              3
+# of Consecutive groups within subjects:3
+
+Group #:                                1
+Number of files:                        53
+File 01                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_301_FW.Trigge.GfpNorm.sef
+File 02                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_302_FW.Trigge.GfpNorm.sef
+File 03                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_303_FW.Trigge.GfpNorm.sef
+File 04                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_305_FW.Trigge.GfpNorm.sef
+File 05                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_306_FW.Trigge.GfpNorm.sef
+File 06                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_308_FW.Trigge.GfpNorm.sef
+File 07                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_309_FW.Trigge.GfpNorm.sef
+File 08                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_310_FW.Trigge.GfpNorm.sef
+File 09                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_312_FW.Trigge.GfpNorm.sef
+File 10                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_313_FW.Trigge.GfpNorm.sef
+File 11                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_314_FW.Trigge.GfpNorm.sef
+File 12                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_316_FW.Trigge.GfpNorm.sef
+File 13                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_317_FW.Trigge.GfpNorm.sef
+File 14                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_319_FW.Trigge.GfpNorm.sef
+File 15                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_321_FW.Trigge.GfpNorm.sef
+File 16                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_322_FW.Trigge.GfpNorm.sef
+File 17                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_323_FW.Trigge.GfpNorm.sef
+File 18                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_AStroop_123_A_327_FW.Trigge.GfpNorm.sef
+File 19                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_101_FW.Trigge.GfpNorm.sef
+File 20                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_102_FW.Trigge.GfpNorm.sef
+File 21                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_104_FW.Trigge.GfpNorm.sef
+File 22                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_105_FW.Trigge.GfpNorm.sef
+File 23                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_106_FW.Trigge.GfpNorm.sef
+File 24                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_107_FW.Trigge.GfpNorm.sef
+File 25                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_110_FW.Trigge.GfpNorm.sef
+File 26                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_111_FW.Trigge.GfpNorm.sef
+File 27                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_112_FW.Trigge.GfpNorm.sef
+File 28                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_113_FW.Trigge.GfpNorm.sef
+File 29                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_114_FW.Trigge.GfpNorm.sef
+File 30                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_115_FW.Trigge.GfpNorm.sef
+File 31                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_116_FW.Trigge.GfpNorm.sef
+File 32                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_117_FW.Trigge.GfpNorm.sef
+File 33                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_118_FW.Trigge.GfpNorm.sef
+File 34                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_119_FW.Trigge.GfpNorm.sef
+File 35                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_EStroop_123_E_120_FW.Trigge.GfpNorm.sef
+File 36                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_504_FW.Trigge.GfpNorm.sef
+File 37                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_505_FW.Trigge.GfpNorm.sef
+File 38                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_508_FW.Trigge.GfpNorm.sef
+File 39                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_509_FW.Trigge.GfpNorm.sef
+File 40                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_510_FW.Trigge.GfpNorm.sef
+File 41                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_511_FW.Trigge.GfpNorm.sef
+File 42                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_512_FW.Trigge.GfpNorm.sef
+File 43                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_513_FW.Trigge.GfpNorm.sef
+File 44                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_515_FW.Trigge.GfpNorm.sef
+File 45                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_519_FW.Trigge.GfpNorm.sef
+File 46                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_520_FW.Trigge.GfpNorm.sef
+File 47                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_521_FW.Trigge.GfpNorm.sef
+File 48                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_522_FW.Trigge.GfpNorm.sef
+File 49                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_524_FW.Trigge.GfpNorm.sef
+File 50                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_526_FW.Trigge.GfpNorm.sef
+File 51                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_527_FW.Trigge.GfpNorm.sef
+File 52                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_601_FW.Trigge.GfpNorm.sef
+File 53                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup1\Avg_OStroop_123_O_611_FW.Trigge.GfpNorm.sef
+
+Group #:                                2
+Number of files:                        53
+File 01                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_301_FW.Trigge.GfpNorm_2.sef
+File 02                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_302_FW.Trigge.GfpNorm_2.sef
+File 03                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_303_FW.Trigge.GfpNorm_2.sef
+File 04                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_305_FW.Trigge.GfpNorm_2.sef
+File 05                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_306_FW.Trigge.GfpNorm_2.sef
+File 06                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_308_FW.Trigge.GfpNorm_2.sef
+File 07                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_309_FW.Trigge.GfpNorm_2.sef
+File 08                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_310_FW.Trigge.GfpNorm_2.sef
+File 09                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_312_FW.Trigge.GfpNorm_2.sef
+File 10                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_313_FW.Trigge.GfpNorm_2.sef
+File 11                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_314_FW.Trigge.GfpNorm_2.sef
+File 12                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_316_FW.Trigge.GfpNorm_2.sef
+File 13                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_317_FW.Trigge.GfpNorm_2.sef
+File 14                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_319_FW.Trigge.GfpNorm_2.sef
+File 15                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_321_FW.Trigge.GfpNorm_2.sef
+File 16                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_322_FW.Trigge.GfpNorm_2.sef
+File 17                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_323_FW.Trigge.GfpNorm_2.sef
+File 18                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_AStroop_123_A_327_FW.Trigge.GfpNorm_2.sef
+File 19                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_101_FW.Trigge.GfpNorm_2.sef
+File 20                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_102_FW.Trigge.GfpNorm_2.sef
+File 21                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_104_FW.Trigge.GfpNorm_2.sef
+File 22                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_105_FW.Trigge.GfpNorm_2.sef
+File 23                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_106_FW.Trigge.GfpNorm_2.sef
+File 24                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_107_FW.Trigge.GfpNorm_2.sef
+File 25                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_110_FW.Trigge.GfpNorm_2.sef
+File 26                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_111_FW.Trigge.GfpNorm_2.sef
+File 27                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_112_FW.Trigge.GfpNorm_2.sef
+File 28                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_113_FW.Trigge.GfpNorm_2.sef
+File 29                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_114_FW.Trigge.GfpNorm_2.sef
+File 30                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_115_FW.Trigge.GfpNorm_2.sef
+File 31                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_116_FW.Trigge.GfpNorm_2.sef
+File 32                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_117_FW.Trigge.GfpNorm_2.sef
+File 33                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_118_FW.Trigge.GfpNorm_2.sef
+File 34                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_119_FW.Trigge.GfpNorm_2.sef
+File 35                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_EStroop_123_E_120_FW.Trigge.GfpNorm_2.sef
+File 36                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_504_FW.Trigge.GfpNorm_2.sef
+File 37                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_505_FW.Trigge.GfpNorm_2.sef
+File 38                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_508_FW.Trigge.GfpNorm_2.sef
+File 39                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_509_FW.Trigge.GfpNorm_2.sef
+File 40                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_510_FW.Trigge.GfpNorm_2.sef
+File 41                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_511_FW.Trigge.GfpNorm_2.sef
+File 42                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_512_FW.Trigge.GfpNorm_2.sef
+File 43                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_513_FW.Trigge.GfpNorm_2.sef
+File 44                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_515_FW.Trigge.GfpNorm_2.sef
+File 45                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_519_FW.Trigge.GfpNorm_2.sef
+File 46                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_520_FW.Trigge.GfpNorm_2.sef
+File 47                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_521_FW.Trigge.GfpNorm_2.sef
+File 48                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_522_FW.Trigge.GfpNorm_2.sef
+File 49                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_524_FW.Trigge.GfpNorm_2.sef
+File 50                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_526_FW.Trigge.GfpNorm_2.sef
+File 51                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_527_FW.Trigge.GfpNorm_2.sef
+File 52                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_601_FW.Trigge.GfpNorm_2.sef
+File 53                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup2\Avg_OStroop_123_O_611_FW.Trigge.GfpNorm_2.sef
+
+Group #:                                3
+Number of files:                        53
+File 01                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_301_FW.Trigge.GfpNorm_3.sef
+File 02                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_302_FW.Trigge.GfpNorm_3.sef
+File 03                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_303_FW.Trigge.GfpNorm_3.sef
+File 04                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_305_FW.Trigge.GfpNorm_3.sef
+File 05                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_306_FW.Trigge.GfpNorm_3.sef
+File 06                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_308_FW.Trigge.GfpNorm_3.sef
+File 07                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_309_FW.Trigge.GfpNorm_3.sef
+File 08                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_310_FW.Trigge.GfpNorm_3.sef
+File 09                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_312_FW.Trigge.GfpNorm_3.sef
+File 10                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_313_FW.Trigge.GfpNorm_3.sef
+File 11                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_314_FW.Trigge.GfpNorm_3.sef
+File 12                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_316_FW.Trigge.GfpNorm_3.sef
+File 13                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_317_FW.Trigge.GfpNorm_3.sef
+File 14                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_319_FW.Trigge.GfpNorm_3.sef
+File 15                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_321_FW.Trigge.GfpNorm_3.sef
+File 16                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_322_FW.Trigge.GfpNorm_3.sef
+File 17                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_323_FW.Trigge.GfpNorm_3.sef
+File 18                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_AStroop_123_A_327_FW.Trigge.GfpNorm_3.sef
+File 19                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_101_FW.Trigge.GfpNorm_3.sef
+File 20                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_102_FW.Trigge.GfpNorm_3.sef
+File 21                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_104_FW.Trigge.GfpNorm_3.sef
+File 22                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_105_FW.Trigge.GfpNorm_3.sef
+File 23                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_106_FW.Trigge.GfpNorm_3.sef
+File 24                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_107_FW.Trigge.GfpNorm_3.sef
+File 25                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_110_FW.Trigge.GfpNorm_3.sef
+File 26                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_111_FW.Trigge.GfpNorm_3.sef
+File 27                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_112_FW.Trigge.GfpNorm_3.sef
+File 28                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_113_FW.Trigge.GfpNorm_3.sef
+File 29                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_114_FW.Trigge.GfpNorm_3.sef
+File 30                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_115_FW.Trigge.GfpNorm_3.sef
+File 31                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_116_FW.Trigge.GfpNorm_3.sef
+File 32                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_117_FW.Trigge.GfpNorm_3.sef
+File 33                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_118_FW.Trigge.GfpNorm_3.sef
+File 34                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_119_FW.Trigge.GfpNorm_3.sef
+File 35                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_EStroop_123_E_120_FW.Trigge.GfpNorm_3.sef
+File 36                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_504_FW.Trigge.GfpNorm_3.sef
+File 37                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_505_FW.Trigge.GfpNorm_3.sef
+File 38                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_508_FW.Trigge.GfpNorm_3.sef
+File 39                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_509_FW.Trigge.GfpNorm_3.sef
+File 40                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_510_FW.Trigge.GfpNorm_3.sef
+File 41                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_511_FW.Trigge.GfpNorm_3.sef
+File 42                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_512_FW.Trigge.GfpNorm_3.sef
+File 43                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_513_FW.Trigge.GfpNorm_3.sef
+File 44                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_515_FW.Trigge.GfpNorm_3.sef
+File 45                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_519_FW.Trigge.GfpNorm_3.sef
+File 46                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_520_FW.Trigge.GfpNorm_3.sef
+File 47                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_521_FW.Trigge.GfpNorm_3.sef
+File 48                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_522_FW.Trigge.GfpNorm_3.sef
+File 49                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_524_FW.Trigge.GfpNorm_3.sef
+File 50                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_526_FW.Trigge.GfpNorm_3.sef
+File 51                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_527_FW.Trigge.GfpNorm_3.sef
+File 52                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_601_FW.Trigge.GfpNorm_3.sef
+File 53                                 C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\PreprocGroup3\Avg_OStroop_123_O_611_FW.Trigge.GfpNorm_3.sef
+
+
+	Output Files:
+	-------------
+Verbose file (this):                    C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Fit Maps FW_ICN_5maps.vrb
+Copy of Template file:                  C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Maps FW_ICN_5maps.ep
+Copy of Segmentation file:              C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Maps FW_ICN_5maps.seg
+
+Worksheet file for Cartool:             C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Fit Maps FW_ICN_5maps.Group*.LinesAsSamples.csv
+Worksheet file for R:                   C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Fit Maps FW_ICN_5maps.Group*.ColumnsAsFactors.csv
+
+Segmentation file,  all subjects:       C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Fit Maps FW_ICN_5maps.Groups*.seg
+Segmentation files, per subject :       C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Segmentations\Fit Maps FW_ICN_5maps.Groups*.Subj*.seg
+
+Time Course of Correlations data/maps:  C:\Users\EricM\Desktop\verification topo\Comparaison Ragu Cartool\backfitting\Fit Maps FW_ICN_5maps\Correlations\Fit Maps FW_ICN_5maps.Group*.Subj*.Corr.sef
+
+
+	Processing Summary:
+	-------------------
+Data are processed following the sequence:
+
+    Repeating for each epoch, or do once on all time frames:
+
+    * Labeling                      (always)
+    * Removing low correlations     (optional)
+    * Temporal smoothing            (optional)
+
+    Once on all time frames:
+
+    * Rejection of small segments   (optional)
+
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+
+
+	Correlations  Centroids x Centroids:
+	------------------------------------
+(multiplied by 100; -100 = opposite, 100 = identical)
+
+Map               1       2       3       4       5
+__________|________________________________________
+1               100      84      91      95      98
+2                84     100      73      72      83
+3                91      73     100      97      96
+4                95      72      97     100      98
+5                98      83      96      98     100
+
+
+
+-----------------------------------------------------------------------------
+-----------------------------------------------------------------------------
+
+
+
+	Processing Group(s):
+	--------------------
+Group #:                                1 (53 files)
+                                        2 (53 files)
+                                        3 (53 files)
+
+
+
+	Labeled vs Unlabeled TFs:
+	-------------------------
+
+Force minimum Correlation:              No
+
+
+File            EpochsTFs     LabeledTFs   UnlabeledTFs       Labeled%     Unlabeled%
+_________|___________________________________________________________________________
+Subj01                246            246              0         100.00           0.00
+Subj02                246            246              0         100.00           0.00
+Subj03                246            246              0         100.00           0.00
+Subj04                246            246              0         100.00           0.00
+Subj05                246            246              0         100.00           0.00
+Subj06                246            246              0         100.00           0.00
+Subj07                246            246              0         100.00           0.00
+Subj08                246            246              0         100.00           0.00
+Subj09                246            246              0         100.00           0.00
+Subj10                246            246              0         100.00           0.00
+Subj11                246            246              0         100.00           0.00
+Subj12                246            246              0         100.00           0.00
+Subj13                246            246              0         100.00           0.00
+Subj14                246            246              0         100.00           0.00
+Subj15                246            246              0         100.00           0.00
+Subj16                246            246              0         100.00           0.00
+Subj17                246            246              0         100.00           0.00
+Subj18                246            246              0         100.00           0.00
+Subj19                246            246              0         100.00           0.00
+Subj20                246            246              0         100.00           0.00
+Subj21                246            246              0         100.00           0.00
+Subj22                246            246              0         100.00           0.00
+Subj23                246            246              0         100.00           0.00
+Subj24                246            246              0         100.00           0.00
+Subj25                246            246              0         100.00           0.00
+Subj26                246            246              0         100.00           0.00
+Subj27                246            246              0         100.00           0.00
+Subj28                246            246              0         100.00           0.00
+Subj29                246            246              0         100.00           0.00
+Subj30                246            246              0         100.00           0.00
+Subj31                246            246              0         100.00           0.00
+Subj32                246            246              0         100.00           0.00
+Subj33                246            246              0         100.00           0.00
+Subj34                246            246              0         100.00           0.00
+Subj35                246            246              0         100.00           0.00
+Subj36                246            246              0         100.00           0.00
+Subj37                246            246              0         100.00           0.00
+Subj38                246            246              0         100.00           0.00
+Subj39                246            246              0         100.00           0.00
+Subj40                246            246              0         100.00           0.00
+Subj41                246            246              0         100.00           0.00
+Subj42                246            246              0         100.00           0.00
+Subj43                246            246              0         100.00           0.00
+Subj44                246            246              0         100.00           0.00
+Subj45                246            246              0         100.00           0.00
+Subj46                246            246              0         100.00           0.00
+Subj47                246            246              0         100.00           0.00
+Subj48                246            246              0         100.00           0.00
+Subj49                246            246              0         100.00           0.00
+Subj50                246            246              0         100.00           0.00
+Subj51                246            246              0         100.00           0.00
+Subj52                246            246              0         100.00           0.00
+Subj53                246            246              0         100.00           0.00
+All                 13038          13038              0         100.00           0.00
+
+
